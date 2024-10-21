@@ -27,3 +27,14 @@ export type Medication = {
   isActive: boolean; // Whether the medication is currently active
   remindersEnabled?: boolean; // Whether reminders for taking the medication are enabled
 };
+
+export type Blog = {
+  id: number;
+  title: string;
+  author: string;
+  preview: string;
+  content: string;
+  readTime: string;
+  category: string;
+  date: string;
+}
