@@ -38,7 +38,14 @@ export default function App() {
               }
             />
             <Route path="news" element={<News />} />
-            <Route path="search" element={<Search />} />
+            <Route
+              path="search"
+              element={
+                <Authenticate>
+                  <Search />
+                </Authenticate>
+              }
+            />{" "}
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
             <Route path="*" element={<NotFound />} />

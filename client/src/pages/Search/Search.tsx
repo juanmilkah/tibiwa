@@ -1,5 +1,5 @@
 import { MockResultsData as resultsData } from "./components/MockResultsData";
-import { useState } from "react";
+import { useState, useRef, useEffect, FormEvent } from "react";
 import {
   Search as SearchIcon,
   User,
@@ -25,6 +25,16 @@ export default function Search() {
     { id: "pharmacies", name: "Pharmacies", icon: Store },
   ];
 
+  //auto focus the search bar
+  const inputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  const HandleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSearchQuery("");
+  };
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-6">
       {/* Search Header */}
@@ -32,13 +42,16 @@ export default function Search() {
         <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
           <div className="relative">
             <SearchIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search for doctors, hospitals, medications..."
-              className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            />
+            <form onSubmit={HandleFormSubmit}>
+              <input
+                ref={inputRef}
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search for doctors, hospitals, medications..."
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              />
+            </form>
             <button
               onClick={() => setShowFilters(!showFilters)}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"

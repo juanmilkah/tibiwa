@@ -75,22 +75,16 @@ export default function Nav() {
           </div>
 
           {/* Middle - Search bar */}
-          <div className="flex-1 max-w-md mx-4">
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Search size={20} className="text-gray-400" />
-              </div>
-              <form onSubmit={HandleSearch}>
-                <input
-                  type="text"
-                  className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  placeholder="Search..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </form>
-            </div>
-          </div>
+
+          {User !== "Guest" && (
+            <Link
+              to="/search"
+              className="flex items-center space-x-2 text-gray-800 hover:text-gray-600"
+            >
+              <Search size={20} />
+              <span>Search</span>
+            </Link>
+          )}
 
           {/* Right side - Auth buttons */}
           <div className="flex items-center space-x-4">
