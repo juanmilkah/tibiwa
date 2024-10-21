@@ -4,6 +4,7 @@ import Consultation from "../components/Consultation/Consultation";
 import Monitoring from "../components/Monitoring/Monitoring";
 import ProfileManagement from "../components/ProfileManagement/ProfileManagement";
 import Medication from "../components/Medication/Medication";
+import DashboardSettings from "../components/DashboardSettings/DashboardSettings";
 
 import { useState } from "react";
 import {
@@ -15,6 +16,7 @@ import {
   User,
   MenuIcon,
   X,
+  Settings,
 } from "lucide-react";
 
 const navigationItems = [
@@ -24,6 +26,7 @@ const navigationItems = [
   { id: "Consultation", label: "Consultation", icon: MessageCircle },
   { id: "Alerts", label: "Alerts", icon: Bell },
   { id: "ProfileManagement", label: "My Profile", icon: User },
+  { id: "DashboardSettings", label: "Settings", icon: Settings },
 ];
 
 export default function UserDashboard() {
@@ -44,6 +47,8 @@ export default function UserDashboard() {
         return <Alerts />;
       case "ProfileManagement":
         return <ProfileManagement />;
+      case "DashboardSettings":
+        return <DashboardSettings />;
       default:
         return <Medication />;
     }
@@ -84,7 +89,7 @@ export default function UserDashboard() {
           z-10 lg:z-0
         `}
         >
-          <div className="p-6">
+          <div className="p-6 font-bold">
             <h2 className="mb-6 text-xl font-bold text-gray-800">Dashboard</h2>
             <ul className="space-y-2">
               {navigationItems.map((item) => {
