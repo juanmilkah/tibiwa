@@ -13,12 +13,12 @@ export default function Home() {
     </>
   ) : accountType === "Doctor" ? (
     <>
-      <b>Patients Dashboard</b>
+      <b>Doctors Dashboard</b>
       <DoctorDashboard />
     </>
   ) : (
     <>
-      <b>Patients Dashboard</b>
+      <b>Guests Dashboard</b>
       <GuestDashboard />
     </>
   );
