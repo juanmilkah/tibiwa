@@ -7,10 +7,19 @@ export default function Home() {
   const accountType = AccountType();
 
   return accountType === "Patient" ? (
-    <PatientDashboard />
+    <>
+      <b>Patients Dashboard</b>
+      <PatientDashboard />
+    </>
   ) : accountType === "Doctor" ? (
-    <DoctorDashboard />
+    <>
+      <b>Patients Dashboard</b>
+      <DoctorDashboard />
+    </>
   ) : (
-    <GuestDashboard />
+    <>
+      <b>Patients Dashboard</b>
+      <GuestDashboard />
+    </>
   );
 }

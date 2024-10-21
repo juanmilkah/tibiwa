@@ -82,7 +82,7 @@ export default function Appointments() {
       <div className="overflow-hidden bg-white border border-gray-200 rounded-lg shadow-sm">
         <div
           onClick={() => toggleDetails(appt.id)}
-          className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50"
+          className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-100"
         >
           <div className="flex items-center space-x-4">
             <Calendar className="text-gray-500" size={20} />
@@ -113,7 +113,7 @@ export default function Appointments() {
         </div>
 
         {isExpanded && (
-          <div className="p-4 border-t border-gray-100 bg-gray-50 space-y-3">
+          <div className="p-4 bg-gray-400 border-t border-gray-100 space-y-3">
             <div className="grid gap-3">
               <div className="flex items-center text-gray-700 space-x-2">
                 <FileText size={16} className="text-gray-500" />

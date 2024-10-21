@@ -58,7 +58,7 @@ export default function Medication() {
             : value === "inactive"
             ? "bg-red-500 text-white"
             : "bg-blue-500 text-white"
-          : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+          : "bg-gray-100 text-gray-600 hover:bg-gray-500"
       }`}
     >
       {label}
@@ -72,7 +72,7 @@ export default function Medication() {
       <div className="mb-4 overflow-y-auto bg-white rounded-lg shadow-md">
         <div
           onClick={() => ToggleShowDetails(med.id)}
-          className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-400"
+          className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-100"
         >
           <div className="flex items-center space-x-3">
             <div

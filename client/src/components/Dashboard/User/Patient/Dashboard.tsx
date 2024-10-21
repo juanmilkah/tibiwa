@@ -115,8 +115,8 @@ export default function UserDashboard() {
         </nav>
 
         {/* Main Content */}
-        <main className="flex-1 p-6 lg:p-8">
-          <div className="p-6 mx-auto bg-white rounded-lg max-w-7xl shadow-sm">
+        <main className="flex-1 p-3 lg:p-8">
+          <div className="mx-auto bg-white rounded-lg max-w-7xl shadow-sm">
             {renderSection()}
           </div>
         </main>
