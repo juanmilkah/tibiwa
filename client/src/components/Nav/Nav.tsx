@@ -1,7 +1,9 @@
+import AccountType from "../AccountType/AccountType";
 import { Link } from "react-router-dom";
 import {
   Search,
   Home,
+  Info,
   Newspaper,
   Hospital,
   UserRound,
@@ -12,6 +14,7 @@ import { useState, FormEvent } from "react";
 
 export default function Nav() {
   const [searchQuery, setSearchQuery] = useState("");
+  const User = AccountType();
 
   const HandleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,6 +35,16 @@ export default function Nav() {
               <span>Home</span>
             </Link>
 
+            {User !== "Guest" && (
+              <Link
+                to="/about"
+                className="flex items-center space-x-2 text-gray-800 hover:text-gray-600"
+              >
+                <Info size={20} />
+                <span>About</span>
+              </Link>
+            )}
+
             <Link
               to="/news"
               className="flex items-center space-x-2 text-gray-800 hover:text-gray-600"
@@ -40,21 +53,25 @@ export default function Nav() {
               <span>News</span>
             </Link>
 
-            <Link
-              to="/hospitals"
-              className="flex items-center space-x-2 text-gray-800 hover:text-gray-600"
-            >
-              <Hospital size={20} />
-              <span>Hospitals</span>
-            </Link>
+            {User !== "Guest" && (
+              <Link
+                to="/hospitals"
+                className="flex items-center space-x-2 text-gray-800 hover:text-gray-600"
+              >
+                <Hospital size={20} />
+                <span>Hospitals</span>
+              </Link>
+            )}
 
-            <Link
-              to="/doctors"
-              className="flex items-center space-x-2 text-gray-800 hover:text-gray-600"
-            >
-              <UserRound size={20} />
-              <span>Doctors</span>
-            </Link>
+            {User !== "Guest" && (
+              <Link
+                to="/doctors"
+                className="flex items-center space-x-2 text-gray-800 hover:text-gray-600"
+              >
+                <UserRound size={20} />
+                <span>Doctors</span>
+              </Link>
+            )}
           </div>
 
           {/* Middle - Search bar */}

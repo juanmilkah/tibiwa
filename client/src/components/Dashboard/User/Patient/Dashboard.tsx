@@ -60,7 +60,7 @@ export default function UserDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 ">
       {/* Mobile Menu Button */}
       <div className="fixed z-20 lg:hidden top-4 left-4">
         <button
@@ -121,7 +121,7 @@ export default function UserDashboard() {
 
         {/* Main Content */}
         <main className="flex-1 p-3 lg:p-8">
-          <div className="mx-auto bg-white rounded-lg max-w-7xl shadow-sm">
+          <div className="mx-auto bg-white rounded-lg max-w-7xl shadow-sm ">
             {renderSection()}
           </div>
         </main>

@@ -1,6 +1,7 @@
 import Search from "./pages/Search/Search";
 import Layout from "./pages/Layout/Layout";
 import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
 import NotFound from "./pages/NotFound/NotFound";
 import News from "./pages/News/News";
 import Doctors from "./pages/Doctors/Doctors";
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
+            <Route path="about" element={<About />} />
             <Route
               path="doctors"
               element={

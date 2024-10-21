@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import { CheckCircle, User, Clock, Phone, Heart } from "lucide-react";
 
-export default function About() {
+export default function AboutComponent() {
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-3xl font-bold mb-4 text-center">
@@ -55,6 +56,14 @@ export default function About() {
         accessible. Let us help you take control of your health, one step at a
         time.
       </p>
+      <div className="text-center mt-4 mb-4">
+        <Link
+          to="/login"
+          className="inline-block px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition duration-200"
+        >
+          Dashboard
+        </Link>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import About from "../../About/About";
+import AboutComponent from "../../About/About";
 
 export default function GuestDashboard() {
-  return <About />;
+  return <AboutComponent />;
 }
