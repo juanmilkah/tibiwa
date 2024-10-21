@@ -19,3 +19,24 @@
                       |  Upcoming Appointments      |    |
                       +-----------------------------+    |
 ```
+
+# Set-Up
+Install [Bun](https://bun.sh/docs/installation)
+
+# Install Dependencies
+
+```bash
+bun install
+```
+
+# Localhost
+
+```bash
+bun run dev --port 8000
+```
+
+# Expose to Local Network
+
+```bash
+bun run dev --port 8000 --host
+```
