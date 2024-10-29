@@ -7,6 +7,7 @@ export const MockBlogs: Blog[] = [
     title: "New Breakthrough in Cancer Treatment Shows Promise",
     preview:
       "Researchers at leading medical institutions have discovered a novel approach to treating aggressive forms of cancer...",
+    authorId: "2",
     author: "Dr. Sarah Johnson",
     date: "2024-10-20",
     readTime: "5 min read",
@@ -25,6 +26,7 @@ export const MockBlogs: Blog[] = [
     preview:
       "Artificial Intelligence is revolutionizing healthcare delivery and patient outcomes across various medical fields...",
 content:"The integration of AI in modern healthcare is creating a paradigm shift that promises improved patient outcomes, enhanced operational efficiency, and groundbreaking advancements in research and development. As technology continues to evolve, the potential for AI to further shape the future of healthcare is immense, making it an exciting field to watch. Embracing these changes will be crucial for healthcare professionals, policymakers, and patients alike as we navigate this transformative era.",
+    authorId: "3",
     author: "Tech Health Team",
     date: "2024-10-19",
     readTime: "8 min read",
@@ -36,6 +38,7 @@ content:"The integration of AI in modern healthcare is creating a paradigm shift
     preview:
       "The latest dietary guidelines have been updated to reflect new research on nutrition and public health...",
     content: "",
+    authorId: "3",
     author: "Nutrition Council",
     date: "2024-10-18",
     readTime: "6 min read",
@@ -47,6 +50,7 @@ content:"The integration of AI in modern healthcare is creating a paradigm shift
     preview:
       "How technology is both helping and challenging mental health in modern society...",
     content: "",
+    authorId: "2",
     author: "Dr. Michael Chen",
     date: "2024-10-17",
     readTime: "7 min read",

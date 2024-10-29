@@ -31,6 +31,7 @@ export type Medication = {
 export type Blog = {
   id: number;
   title: string;
+  authorId: string;
   author: string;
   preview: string;
   content: string;
