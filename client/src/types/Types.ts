@@ -1,7 +1,7 @@
 export type User = {
   id: string; name : string;
   email?: string;
-  phonenumber?: number; isProvider : boolean;
+  phonenumber?: number; isProvider : boolean; avatarUrl : string;
 }
 
 export type Appointment = {
