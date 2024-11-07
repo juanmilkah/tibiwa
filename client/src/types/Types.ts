@@ -1,7 +1,7 @@
 export type User = {
   id: string; name : string;
   email?: string;
-  phonenumber?: number;
+  phonenumber?: number; isProvider : boolean;
 }
 
 export type Appointment = {
@@ -20,7 +20,8 @@ export type Appointment = {
 };
 
 export type Medication = {
-  id: string;            // Unique identifier for the medication
+  id: string; // Unique identifier for the medication
+  patientId : string;
   name : string;         // Name of the medication
   dosage : string;       // Dosage amount (e.g., "500mg")
   frequency : string;    // Frequency of intake (e.g., "twice a day")
