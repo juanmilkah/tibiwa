@@ -1,3 +1,9 @@
+export type User = {
+  id: string; name : string;
+  email?: string;
+  phonenumber?: number;
+}
+
 export type Appointment = {
   id: string;                    // unique identifier for the appointment
   patientId : string;            // reference to the patient
@@ -30,7 +36,7 @@ export type Medication = {
 };
 
 export type Blog = {
-  id: number; title : string; authorId : string; author : string;
+  id: string; title : string; authorId : string; author : string;
   preview : string;
   content : string;
   readTime : string;
