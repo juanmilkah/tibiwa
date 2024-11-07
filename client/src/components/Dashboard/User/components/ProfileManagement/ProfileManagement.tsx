@@ -39,7 +39,7 @@ export default function ProfileManagement() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-md">
       <h3 className="text-2xl font-semibold mb-6 text-center">
         Manage Your Profile
       </h3>
@@ -105,13 +105,12 @@ export default function ProfileManagement() {
             className="block text-sm font-medium text-gray-700"
           >
             <Link className="inline-block mr-2" />
-            Avatar URL
+            Avatar
           </label>
           <input
-            type="url"
+            type="file"
             name="avatarUrl"
             id="avatarUrl"
-            value={user.avatarUrl}
             onChange={handleChange}
             className="mt-1 block w-full p-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
