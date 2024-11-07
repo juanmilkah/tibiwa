@@ -8,10 +8,11 @@ import (
 )
 
 type User struct {
-	Id          string
-	Name        string
-	Email       string
-	AccountType string
+	Id          string `json:"id"`
+	Name        string `json:"name" validate:"required,min=2,max=50"`
+	Email       string `json:"email" validate:"email"`
+	IsProvider  *bool  `json:"is_provider" validate:"required"`
+	Phonenumber string `json:"phonenumber" validate:"min=10,max=13"`
 }
 
 type UserRepository struct {
@@ -23,7 +24,8 @@ func NewUser(data User) *User {
 		Id:          data.Id,
 		Name:        data.Name,
 		Email:       data.Email,
-		AccountType: data.AccountType,
+		Phonenumber: data.Phonenumber,
+		IsProvider:  data.IsProvider,
 	}
 }
 
@@ -41,4 +43,17 @@ func (r *UserRepository) GetById(id string) (*User, error) {
 
 	return &user, nil
 
+}
+
+func (r *UserRepository) GetAll() (*[]User, error) {
+	var users []User
+
+	err := r.db.Get(&users, "select name, email, phonenumber, isProvider from users")
+
+	if err != nil {
+		log.Printf("Could not fetch all users: %s\n", err)
+		return nil, err
+	}
+
+	return &users, nil
 }
