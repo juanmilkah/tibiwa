@@ -1,15 +1,23 @@
 package models
 
+import (
+	"github.com/jmoiron/sqlx"
+)
+
 type Blog struct {
-	Id       string
-	Author   string
-	Title    string
-	AuthorId string
-	Content  string
-	Preview  string
-	ReadTime string
-	Category string
-	Date     string
+	Id       string `json:"id"`
+	Author   string `json:"author"`
+	Title    string `json:"title"`
+	AuthorId string `json:"author_id"`
+	Content  string `json:"content"`
+	Preview  string `json:"preview"`
+	ReadTime string `json:"read_time"`
+	Category string `json:"category"`
+	Date     string `json:"date"`
+}
+
+type BlogRepository struct {
+	db *sqlx.DB
 }
 
 func NewBlog(data Blog) *Blog {
@@ -23,4 +31,12 @@ func NewBlog(data Blog) *Blog {
 		Category: data.Category,
 		Date:     data.Date,
 	}
+}
+
+func NewBlogRepository(db *sqlx.DB) *BlogRepository {
+	return &BlogRepository{db: db}
+}
+
+func (r *BlogRepository) GetByTitle(title string) *Blog {
+	return nil
 }
