@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CheckCircle, User, Clock, Phone, Heart } from "lucide-react";
+import AccountType from "@/app/account-type";
 
 export default function AboutComponent() {
   return (
@@ -62,7 +63,7 @@ export default function AboutComponent() {
       </p>
       <div className="text-center mt-4 mb-4">
         <Link
-          href="/login"
+          href={AccountType() === "Guest" ? "/login" : "/"}
           className="inline-block px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition duration-200"
         >
           Dashboard
