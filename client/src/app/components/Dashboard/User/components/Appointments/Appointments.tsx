@@ -14,7 +14,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 import type { Appointment } from "../../../../../types";
-import { mockAppointments } from "../MockData/MockAppointments";
+import FetchAppointments from "@/app/data/appointments";
 
 export default function Appointments() {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
@@ -24,7 +24,8 @@ export default function Appointments() {
   >([]);
 
   useEffect(() => {
-    setAppointments([...mockAppointments]);
+    const data = FetchAppointments();
+    setAppointments([...data]);
   }, []);
 
   useEffect(() => {

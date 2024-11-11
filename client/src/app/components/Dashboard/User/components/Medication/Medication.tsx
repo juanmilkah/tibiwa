@@ -1,8 +1,6 @@
 "use client";
 
-import { mockMedications } from "../MockData/MockMedications";
 import { useState, useEffect } from "react";
-import type { Medication } from "../../../../../types";
 import {
   AlertCircle,
   Clock,
@@ -11,6 +9,8 @@ import {
   ChevronUp,
   Bell,
 } from "lucide-react";
+import { type Medication } from "@/app/types";
+import FetchMedications from "@/app/data/medications";
 
 export default function Medication() {
   const [medications, setMedications] = useState<Medication[]>([]);
@@ -23,7 +23,9 @@ export default function Medication() {
   >(null);
 
   useEffect(() => {
-    setMedications([...mockMedications]);
+    const data = FetchMedications();
+
+    setMedications([...data]);
   }, []);
 
   useEffect(() => {
