@@ -2,7 +2,3 @@ use redis for caching
 
 hashing algorithm >>
 encoding and decoding data on transit {not sure if go does this out of the box}
-
-api versioning
-on the url:
-/api/v1/
