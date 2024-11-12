@@ -3,11 +3,11 @@ package db
 import (
 	"database/sql"
 
-	_ "github.com/mattn/go-sqlite3"
+	"github.com/jmoiron/sqlx"
 )
 
-func GetDB(filepath string) (*sql.DB, error) {
-	db, err := sql.Open("sqlite3", filepath)
+func GetDB(filepath string) (*sqlx.DB, error) {
+	db, err := sqlx.Open("sqlite3", filepath)
 
 	if err != nil {
 		return nil, err

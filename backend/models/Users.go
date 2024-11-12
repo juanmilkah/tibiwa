@@ -29,7 +29,7 @@ func NewUser(data User) *User {
 	}
 }
 
-func NewUserRepostory(db *sqlx.DB) *UserRepository {
+func NewUserRepository(db *sqlx.DB) *UserRepository {
 	return &UserRepository{db: db}
 }
 
