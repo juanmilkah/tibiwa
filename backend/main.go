@@ -12,7 +12,7 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/api/", RootHandler)
+	http.HandleFunc("/api/v1/", RootHandler)
 
 	fmt.Printf("Server listening on port 8000\n")
 	err := http.ListenAndServe(":8000", nil)
