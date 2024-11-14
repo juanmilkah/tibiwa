@@ -12,7 +12,7 @@ ENV="development"
 
 ```bash
 chmod +x start-server
-start-server
+./start-server
 ```
 
 ## Stop Server
