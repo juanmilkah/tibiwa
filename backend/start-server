@@ -1,0 +1,7 @@
+ #! /bin/bash/
+
+go build main.go
+echo "Finished building the binary..."
+
+echo "Executing binary..."
+./main
