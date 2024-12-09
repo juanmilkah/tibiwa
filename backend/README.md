@@ -20,3 +20,10 @@ chmod +x start-server
 ```bash
 Ctrl+c
 ```
+
+## Route handlers
+
+### Root Handler
+```
+/api/v1/
+```
