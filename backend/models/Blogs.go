@@ -1,8 +1,6 @@
 package models
 
-import (
-	"github.com/jmoiron/sqlx"
-)
+import "database/sql"
 
 type Blog struct {
 	Id       string `json:"id"`
@@ -17,7 +15,7 @@ type Blog struct {
 }
 
 type BlogRepository struct {
-	db *sqlx.DB
+	db *sql.DB
 }
 
 func NewBlog(data Blog) *Blog {
@@ -33,7 +31,7 @@ func NewBlog(data Blog) *Blog {
 	}
 }
 
-func NewBlogRepository(db *sqlx.DB) *BlogRepository {
+func NewBlogRepository(db *sql.DB) *BlogRepository {
 	return &BlogRepository{db: db}
 }
 
