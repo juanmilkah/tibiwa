@@ -2,9 +2,7 @@ package models
 
 import (
 	"database/sql"
-	"log"
-
-	"github.com/jmoiron/sqlx"
+	"log/slog"
 )
 
 type User struct {
@@ -16,7 +14,7 @@ type User struct {
 }
 
 type UserRepository struct {
-	db *sqlx.DB
+	db *sql.DB
 }
 
 func NewUser(data User) *User {
@@ -29,29 +27,42 @@ func NewUser(data User) *User {
 	}
 }
 
-func NewUserRepository(db *sqlx.DB) *UserRepository {
+func NewUserRepository(db *sql.DB) *UserRepository {
 	return &UserRepository{db: db}
 }
 
 func (r *UserRepository) GetById(id string) (*User, error) {
+	row := r.db.QueryRow("select id, name, email, phonenumber, isProvider from users where id = $1", id)
+
 	var user User
-	err := r.db.Get(&user, "select name, email, phonenumber, isProvider from users where id = $1", id)
-	if err == sql.ErrNoRows {
-		log.Fatal("No user found")
+	if err := row.Scan(&user.Id, &user.Name, &user.Email, &user.Phonenumber, &user.IsProvider); err != nil {
+		slog.Error("failed to get user by id", "error", err.Error())
 		return nil, err
 	}
-
 	return &user, nil
-
 }
 
 func (r *UserRepository) GetAll() (*[]User, error) {
+	rows, err := r.db.Query("SELECT id, name, email, phonenumber, isProvider FROM users")
+	if err != nil {
+		slog.Error("failed to fetch all users", "error", err.Error())
+		return nil, err
+	}
+
 	var users []User
 
-	err := r.db.Get(&users, "select name, email, phonenumber, isProvider from users")
+	for rows.Next() {
+		var user User
+		if err := rows.Scan(&user.Id, &user.Name, &user.Email, &user.Phonenumber, &user.IsProvider); err != nil {
+			slog.Error("failed to scan row into user", "error", err.Error())
+			return nil, err
+		}
+		users = append(users, user)
+	}
 
-	if err != nil {
-		log.Printf("Could not fetch all users: %s\n", err)
+	// Check for errors after iterating through rows
+	if err := rows.Err(); err != nil {
+		slog.Error("error occurred during row iteration", "error", err.Error())
 		return nil, err
 	}
 

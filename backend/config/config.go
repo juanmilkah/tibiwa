@@ -7,7 +7,7 @@ type Config struct {
 }
 
 func LoadConfig() *Config {
-	env := getEnvironment("ENV", "development")
+	env := getEnvironment("ENV", "production")
 
 	return &Config{Env: env}
 }
